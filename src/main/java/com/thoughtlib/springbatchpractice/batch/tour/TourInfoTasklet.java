@@ -1,6 +1,8 @@
 package com.thoughtlib.springbatchpractice.batch.tour;
 
-import com.thoughtlib.springbatchpractice.openapi.tour.korean.TourInfoApiInKorean;
+import com.thoughtlib.springbatchpractice.openapi.dto.TourInfoApiSearchDto;
+import com.thoughtlib.springbatchpractice.openapi.korean.TourInfoApiInKorean;
+import com.thoughtlib.springbatchpractice.service.TourInfoService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -17,13 +19,17 @@ import org.springframework.stereotype.Component;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class TourInfoTasklet implements Tasklet {
 
-    TourInfoApiInKorean tourInfoApiInKorean;
+    TourInfoService tourInfoService;
 
     @Override
     public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
+        TourInfoApiSearchDto search = new TourInfoApiSearchDto();
+        search.setPageNo(1);
+        search.setNumOfRows(10);
+
         log.info(">>>>> TourInfo importing start");
-//        tourInfoApiInKorean.getForTypeReference(null, null);
+        tourInfoService.getTourInfoInKorean(search);
         log.info(">>>>> TourInfo importing end");
-        return null;
+        return RepeatStatus.FINISHED;
     }
 }
