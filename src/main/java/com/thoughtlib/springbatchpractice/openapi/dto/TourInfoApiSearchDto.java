@@ -1,4 +1,4 @@
-package com.thoughtlib.springbatchpractice.openapi.tour.dto;
+package com.thoughtlib.springbatchpractice.openapi.dto;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -15,10 +15,4 @@ public class TourInfoApiSearchDto {
     Integer numOfRows;
 
     Integer pageNo;
-
-    String mobileOS;
-
-    String mobileApp;
-
-    String areaCode;
 }
