@@ -5,7 +5,6 @@ import com.thoughtlib.springbatchpractice.openapi.dto.TourInfoResponseDto;
 import com.thoughtlib.springbatchpractice.openapi.korean.TourInfoApiInKorean;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.springframework.http.ResponseEntity;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -66,7 +65,7 @@ public class TourInfoApiTest {
         search.setNumOfRows(10);
         search.setPageNo(1);
 
-        List<TourInfoResponseDto.Item> result = tourInfoApiInKorean.getTourInfo(search);
+        List<TourInfoResponseDto.Item> result = tourInfoApiInKorean.getItemList(search);
 
 
         log.debug("result : {}", result);

@@ -9,7 +9,6 @@ import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,8 +29,8 @@ public class TourInfoService {
     TourInfoRepository tourInfoRepository;
 
     @Transactional
-    public void getTourInfoInKorean(TourInfoApiSearchDto search ) throws IOException, URISyntaxException {
-        List<TourInfoResponseDto.Item> itemList = tourInfoApiInKorean.getTourInfo(search);
+    public void getTourInfoAndSaveAll(TourInfoApiSearchDto search ) throws IOException, URISyntaxException {
+        List<TourInfoResponseDto.Item> itemList = tourInfoApiInKorean.getItemList(search);
 
         List<TourInfo> tourInfoList = responseToTourInfoList(itemList);
 

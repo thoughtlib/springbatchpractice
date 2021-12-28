@@ -60,7 +60,7 @@ public class TourInfoApiInKorean {
 
     }
 
-    public List<TourInfoResponseDto.Item> getTourInfo(TourInfoApiSearchDto search) throws IOException, URISyntaxException {
+    public List<TourInfoResponseDto.Item> getItemList(TourInfoApiSearchDto search) throws IOException, URISyntaxException {
 
         HttpEntity httpEntity = getHttpEntity();
         URI uri = createUrI(search);

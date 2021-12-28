@@ -16,7 +16,7 @@ import java.util.List;
 @Getter
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class TourInfoResponseDto implements Serializable {
+public class TourInfoResponseDto {
 
     Response response;
 

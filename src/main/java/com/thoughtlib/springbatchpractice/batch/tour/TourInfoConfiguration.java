@@ -33,11 +33,6 @@ public class TourInfoConfiguration {
     }
 
     @Bean
-    public Step testStep() {
-        return null;
-    }
-
-    @Bean
     @JobScope
     public Step tourInfoStep() {
         return this.stepBuilderFactory.get("tourInfoStep")

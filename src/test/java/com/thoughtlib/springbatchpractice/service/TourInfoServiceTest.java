@@ -31,7 +31,7 @@ public class TourInfoServiceTest {
         search.setNumOfRows(10);
         search.setPageNo(1);
 
-        List<TourInfoResponseDto.Item> itemList = tourInfoApiInKorean.getTourInfo(search);
+        List<TourInfoResponseDto.Item> itemList = tourInfoApiInKorean.getItemList(search);
 
         TourInfo tourInfo = itemList.get(0).createTourInfo();
 

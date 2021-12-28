@@ -1,7 +1,6 @@
 package com.thoughtlib.springbatchpractice.batch.tour;
 
 import com.thoughtlib.springbatchpractice.openapi.dto.TourInfoApiSearchDto;
-import com.thoughtlib.springbatchpractice.openapi.korean.TourInfoApiInKorean;
 import com.thoughtlib.springbatchpractice.service.TourInfoService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +27,7 @@ public class TourInfoTasklet implements Tasklet {
         search.setNumOfRows(10);
 
         log.info(">>>>> TourInfo importing start");
-        tourInfoService.getTourInfoInKorean(search);
+        tourInfoService.getTourInfoAndSaveAll(search);
         log.info(">>>>> TourInfo importing end");
         return RepeatStatus.FINISHED;
     }
