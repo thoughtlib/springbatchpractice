@@ -26,6 +26,8 @@ public class TourInfoTasklet implements Tasklet {
         search.setPageNo(1);
         search.setNumOfRows(10);
 
+        stepContribution.incrementReadCount();
+
         log.info(">>>>> TourInfo importing start");
         tourInfoService.getTourInfoAndSaveAll(search);
         log.info(">>>>> TourInfo importing end");

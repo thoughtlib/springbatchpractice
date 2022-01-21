@@ -22,13 +22,11 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class TourInfoService {
 
-    @Autowired
     TourInfoApiInKorean tourInfoApiInKorean;
 
-    @Autowired
     TourInfoRepository tourInfoRepository;
 
-    @Transactional
+    @Transactional // 상위에 붙이는게 원칙 파써드???
     public void getTourInfoAndSaveAll(TourInfoApiSearchDto search ) throws IOException, URISyntaxException {
         List<TourInfoResponseDto.Item> itemList = tourInfoApiInKorean.getItemList(search);
 
@@ -37,18 +35,15 @@ public class TourInfoService {
         saveAll(tourInfoList);
     }
 
-    @Transactional
-    public void saveAll(List<TourInfo> tourInfoList) {
+    private void saveAll(List<TourInfo> tourInfoList) {
         tourInfoRepository.saveAll(tourInfoList);
     }
 
-    @Transactional
-    public void save(TourInfo tourInfo) {
+    private void save(TourInfo tourInfo) {
         tourInfoRepository.save(tourInfo);
     }
 
     private List<TourInfo> responseToTourInfoList(List<TourInfoResponseDto.Item> itemList) {
-
         List<TourInfo> tourInfoList = new ArrayList<>();
 
         for (TourInfoResponseDto.Item item : itemList) {
