@@ -35,8 +35,6 @@ public class TourInfoServiceTest {
 
         TourInfo tourInfo = itemList.get(0).createTourInfo();
 
-        tourInfoService.save(tourInfo);
-
     }
 
 }

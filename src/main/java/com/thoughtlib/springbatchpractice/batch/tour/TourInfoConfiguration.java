@@ -10,6 +10,7 @@ import org.springframework.batch.core.configuration.annotation.EnableBatchProces
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.JobScope;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
+import org.springframework.batch.repeat.CompletionPolicy;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -38,6 +39,14 @@ public class TourInfoConfiguration {
         return this.stepBuilderFactory.get("tourInfoStep")
                 .tasklet(tourInfoTasklet)
                 .build();
+    }
+
+    @Bean
+    @JobScope
+    public Step test() {
+//        return this.stepBuilderFactory.get("test").chunk();
+        return null;
+
     }
 
 }
